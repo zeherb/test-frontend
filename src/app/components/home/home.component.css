@@ -1,0 +1,14 @@
+body {
+  padding: 20px;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+#subjects {
+  margin-top: 10px;
+}
+.example-card {
+  margin-bottom: 10px;
+}

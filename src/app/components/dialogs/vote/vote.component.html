@@ -1,0 +1,18 @@
+<div class="body">
+  <h2>{{ data.subject.title }}</h2>
+  <p>{{ data.subject.description }}</p>
+  <h2>Stats</h2>
+  <div class="stats" *ngIf="data.subject.votes.length > 0">
+    <p>{{ yesPourcent }} % : voting yes</p>
+    <p>{{ noPourcent }} % : voting no</p>
+  </div>
+  <div class="stats" *ngIf="data.subject.votes.length == 0">
+    <i> No one has voted for this subjet yet </i>
+  </div>
+
+  <h1><b>Vote</b></h1>
+  <div class="buttons">
+    <button class="btn btn-danger" (click)="vote(false)">NO</button>
+    <button class="btn btn-success" (click)="vote(true)">YES</button>
+  </div>
+</div>

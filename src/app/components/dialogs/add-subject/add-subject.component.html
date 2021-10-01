@@ -1,0 +1,36 @@
+<form
+  [formGroup]="subjectForm"
+  id="subjectForm"
+  (ngSubmit)="createSubject(subjectForm)"
+>
+  <h1><b>Add subject</b></h1>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input type="text" matInput formControlName="title" />
+    <mat-error *ngIf="subjectForm.controls.title.errors?.required">
+      Please enter the subject title
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea type="text" matInput formControlName="description"></textarea>
+    <mat-error *ngIf="subjectForm.controls.description.errors?.required">
+      Please enter the subject description
+    </mat-error>
+  </mat-form-field>
+  <div class="buttons">
+    <button
+      type="button"
+      [mat-dialog-close]="false"
+      class="btn"
+      mat-raised-button
+      color="warn"
+    >
+      Cancel
+    </button>
+    <button type="submit" class="btn" mat-raised-button color="primary">
+      Create
+    </button>
+  </div>
+</form>
