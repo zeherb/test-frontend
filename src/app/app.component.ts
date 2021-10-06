@@ -12,7 +12,6 @@ export class AppComponent {
   constructor(private router: Router) {
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        console.log(event.url);
         if (event.url === '/login' || event.url === '/register') {
           this.showNav = false;
         } else {

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 
@@ -18,6 +18,7 @@ import { Page404Component } from './components/page404/page404.component';
 import { HomeComponent } from './components/home/home.component';
 import { AddSubjectComponent } from './components/dialogs/add-subject/add-subject.component';
 import { VoteComponent } from './components/dialogs/vote/vote.component';
+import { AuthInterceptor } from './guard/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { VoteComponent } from './components/dialogs/vote/vote.component';
     MatDialogModule,
     MatCardModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
